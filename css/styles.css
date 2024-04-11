@@ -87,11 +87,5 @@ input {
     background-color: green;
     background-color: white;
     font-weight: bold;
-    margin-top: 1rem;
-}
-
-
-/*Csak azért, hogy látszódjon, utólag ki lehet törölni, nem a munkádat akarom felülírni Tomi!!!*/
-#eredmeny {
-    color: white;
+    margin-top:0.4rem;
 }
