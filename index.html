@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/alert.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/media.css">
+    <title>SZBSE BlackJack</title>
+</head>
+
+<body>
+    <nav class="row">
+        <h1>SZBSE Black Jack</h1>
+    </nav>
+    <div id="asztal">
+        <div class="row" id="oszto">
+            <div class="col-md-2 col-sm-12 pont">
+                <h1 id="opont">21</h1>
+            </div>
+            <div class="col-md-8 col-sm-12 kozep">
+                <div class="koz" id="osztokartyak">
+                </div>
+            </div>
+            <div id="gomb kozep" class="col-md-2 col-sm-12">
+            </div>
+        </div>
+        <div class="row" id="jatekos">
+            <div class="col-md-2 col-sm-12 pont">
+                <h1 id="jpont">17</h1>
+            </div>
+            <div class="col-md-8 col-sm-12 kozep">
+                <div class="koz" id="jatekoskartyak">
+                </div>
+            </div>
+            <div id="gomb kozep" class="col-md-2 col-sm-12">
+                <input type="button" class="button btn-outline-danger" id="hit" value="Hit">
+                <input type="button" class="button btn-outline-dark" id="stand" value="Stand">
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="js/blackjack.js"></script>
+<script src="js/alert.js"></script>
+
+</html>
