@@ -39,7 +39,7 @@ function vaneBlackjack() {
         kep.src = `images/${pakli[3]}.png`;
         Swal.fire({
             title: 'Döntetlen BLACKJACK!!!',
-            text: 'DÖNTETLEN!',
+            html: `DÖNTETLEN!`,
             icon: 'info',
             confirmButtonText: 'Új játék'
           }).then(() => {ujjatek()});
@@ -51,7 +51,8 @@ function vaneBlackjack() {
         kep.src = `images/${pakli[3]}.png`;
         Swal.fire({
             title: ':) BLACKJACK! :)',
-            text: 'Nyertél BlackJack-kel!',
+            html: `<h5>Nyertél BlackJack-kel!</h5>
+                    <p class="pontir">Osztó pontszáma: ${pontszamit(oszto_lapok)}</p>`,
             icon: 'success',
             confirmButtonText: 'Új játék'
           }).then(() => {ujjatek()});
@@ -64,7 +65,8 @@ function vane21() {
     if (pontszamit(jatekos_lapok) === 21 && jatekos_lapok.length > 2) {
         Swal.fire({
             title: 'Nyertél!',
-            text: '21-ed lett.',
+            html:`<h5>21-ed lett.</h5>
+                  <p>Osztó pontszáma: ${pontszamit(oszto_lapok)}</p>`,
             icon: 'success',
             confirmButtonText: 'Új játék'
           }).then(() => {ujjatek()});
@@ -79,7 +81,10 @@ function vane21() {
 function vaneBust() {
     if (pontszamit(jatekos_lapok) > 21) {
         Swal.fire({
-            title: 'Hoppá... besokaltál!',
+            title:'Hoppá... besokaltál!',
+            html:`
+                  <p class="pontir">Osztó pontszáma: ${pontszamit(oszto_lapok)}</p>
+                  <p class="pontir">Pontszámod: ${pontszamit(jatekos_lapok)}</p>`,
             icon: 'error',
             confirmButtonText: 'Új játék'
           }).then(() => {ujjatek()});
@@ -119,7 +124,9 @@ function stand() {
     if (pontszamit(oszto_lapok) > 21) {
         Swal.fire({
             title: 'Nyertél!',
-            text: 'Az osztó besokallt.',
+            html:`<h5>Az osztó besokallt.</h5>
+                  <p class="pontir">Osztó pontszáma: ${pontszamit(oszto_lapok)}</p>
+                  <p class="pontir">Pontszámod: ${pontszamit(jatekos_lapok)}</p>`,
             icon: 'success',
             confirmButtonText: 'Új játék'
           }).then(() => {ujjatek()});
@@ -129,7 +136,8 @@ function stand() {
     {
         Swal.fire({
             title: ':( BLACKJACK! :(',
-            text: 'Sajnos Blackjack-je lett az osztónak!',
+            html:`<h5>Sajnos Blackjack-je lett az osztónak!</h5>
+                  <p class="pontir">Pontszámod: ${pontszamit(jatekos_lapok)}</p>`,
             icon: 'error',
             confirmButtonText: 'Új játék'
           }).then(() => {ujjatek()});
@@ -138,7 +146,8 @@ function stand() {
     else if (pontszamit(oszto_lapok) === 21) {
         Swal.fire({
             title: 'Vesztettél!',
-            text: 'Az osztónak 21-e lett.',
+            html:`<h5>Az osztónak 21-e lett.</h5>
+                  <p class="pontir">Pontszámod: ${pontszamit(jatekos_lapok)}</p>`,
             icon: 'error',
             confirmButtonText: 'Új játék'
           }).then(() => {ujjatek()});
@@ -146,7 +155,9 @@ function stand() {
     else if (pontszamit(oszto_lapok) > pontszamit(jatekos_lapok)) {
         Swal.fire({
             title: 'Vesztettél!',
-            text: 'Az osztó közelebb volt a 21-hez!',
+            html:`<h5>Az osztó közelebb volt a 21-hez!</h5>
+                  <p class="pontir">Osztó pontszáma: ${pontszamit(oszto_lapok)}</p>
+                  <p class="pontir">Pontszámod: ${pontszamit(jatekos_lapok)}</p>`,
             icon: 'error',
             confirmButtonText: 'Új játék'
           }).then(() => {ujjatek()});
@@ -154,7 +165,9 @@ function stand() {
     else if (pontszamit(oszto_lapok) < pontszamit(jatekos_lapok)) {
         Swal.fire({
             title: 'Nyertél!',
-            text: 'Közelebb voltál a 21-hez!',
+            html:`<h5>Közelebb voltál a 21-hez!</h5>
+                  <p class="pontir">Osztó pontszáma: ${pontszamit(oszto_lapok)}</p>
+                  <p class="pontir">Pontszámod: ${pontszamit(jatekos_lapok)}</p>`,
             icon: 'success',
             confirmButtonText: 'Új játék'
           }).then(() => {ujjatek()});
@@ -162,7 +175,8 @@ function stand() {
     else if (pontszamit(oszto_lapok) === pontszamit(jatekos_lapok)) {
         Swal.fire({
             title: 'Döntetlen!',
-            text: 'Azonos a pontszámod az osztóval.',
+            html:`<h5>Azonos a pontszámod az osztóval.</h5>
+                  <p class="pontir">Pontszámotok: ${pontszamit(jatekos_lapok)}</p>`,
             icon: 'info',
             confirmButtonText: 'Új játék'
           }).then(() => {ujjatek()});
@@ -260,6 +274,10 @@ document.getElementById("hit").addEventListener('click', function() {
     vane21();
     vaneBust();
 });
+
+keveres();
+play();
+vaneBlackjack();
 
 keveres();
 play();
