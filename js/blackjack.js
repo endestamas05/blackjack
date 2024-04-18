@@ -104,7 +104,15 @@ function hit() {
     document.getElementById("jpont").innerHTML = pontszamit(jatekos_lapok);
 }
 
-function stand() {
+function keses(ms) { // Kesleltetes
+    return new Promise(resolve => { 
+        setTimeout(() => {
+            resolve('');
+        }, ms); 
+    }) 
+} 
+
+async function stand() { //async
     document.getElementById("stand").disabled = true;
     document.getElementById("hit").disabled = true;
     document.getElementById("opont").innerHTML = pontszamit(oszto_lapok);
@@ -115,6 +123,7 @@ function stand() {
     
     while(pontszamit(oszto_lapok) < 17)
     {
+        await keses(700);
         oszto_lapok.push(pakli[3+korszam]);
         document.getElementById("osztokartyak").innerHTML += `<img src="images/${pakli[3+korszam]}.png" class="kartya k" alt="card">`;
         korszam++;
